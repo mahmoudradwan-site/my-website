@@ -1,0 +1,17 @@
+{
+  "name": "Mahmoud Radwan — Senior Translator",
+  "short_name": "M·R Translator",
+  "description": "Senior Arabic–English translator. 14 years across technical, medical, legal, and military domains.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf9",
+  "theme_color": "#1e3a52",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

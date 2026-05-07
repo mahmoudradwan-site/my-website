@@ -1,0 +1,20 @@
+# robots.txt — Mahmoud Radwan, Senior Translator
+# TODO before launch: replace SITE_URL with your real domain
+
+User-agent: *
+Allow: /
+
+# Allow all crawlers, including AI assistants (good for visibility in AI answers)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://SITE_URL/sitemap.xml

@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Mahmoud Radwan — Senior Translator"
+version = "1.0.0"
+id = "artifacts/mahmoud-radwan"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22929
+
+[services.development]
+run = "pnpm --filter @workspace/mahmoud-radwan run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mahmoud-radwan", "run", "build" ]
+publicDir = "artifacts/mahmoud-radwan/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22929"
+BASE_PATH = "/"
