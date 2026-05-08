@@ -673,7 +673,7 @@ export function Home() {
                 desktop browsers and opens the WhatsApp app on mobile.
               */}
               <a
-                href="https://wa.me/201061758388?text=Hi%20Mahmoud%2C%20I%27d%20like%20to%20discuss%20a%20translation%20project."
+                href="https://wa.me/00201061758388?text=Hi%20Mahmoud%2C%20I%27d%20like%20to%20discuss%20a%20translation%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 p-6 bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors group"
