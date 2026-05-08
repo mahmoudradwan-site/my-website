@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 import photoPath from "@/assets/photo.png";
+import portfolioDefensePath from "@/assets/portfolio-defense.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -279,9 +280,27 @@ export function Home() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {[
-              { category: "Military / Defense", title: "Pandur 6×6 Armored Vehicle Training", desc: "Full documentation suite and live interpretation for a multinational military training program in Vienna, Austria." },
-              { category: "Academic Research", title: "Cross-Cultural Study on Loneliness", desc: "Contributing translator and cultural consultant for a peer-reviewed study published in the Journal of the International Association for Relationship Research." },
-              { category: "Automotive / Technical", title: "Automotive Brand Localization", desc: "Long-term localization partnership covering owner's manuals, marketing materials, and digital content for a premium luxury automotive brand." },
+              {
+                category: "Military / Defense",
+                title: "Defense Training Documentation",
+                desc: "Full documentation suite and live interpretation for a multinational defense training program.",
+                image: portfolioDefensePath,
+                imageAlt: "Mahmoud Radwan at a defense training site",
+              },
+              {
+                category: "Academic Research",
+                title: "Cross-Cultural Study on Loneliness",
+                desc: "Contributing translator and cultural consultant for a peer-reviewed study published in the Journal of the International Association for Relationship Research.",
+                image: "https://images.unsplash.com/photo-1758270704113-9fb2ac81788f?auto=format&fit=crop&w=1200&q=80",
+                imageAlt: "Professor leading a university lecture with students taking notes",
+              },
+              {
+                category: "Automotive / Technical",
+                title: "Automotive Brand Localization",
+                desc: "Long-term localization partnership covering owner's manuals, marketing materials, and digital content for a premium luxury automotive brand.",
+                image: "https://images.unsplash.com/photo-1760550818631-8043b7850885?auto=format&fit=crop&w=1200&q=80",
+                imageAlt: "Luxury car interior with red leather seats and dashboard",
+              },
             ].map((project, i) => (
               <motion.div 
                 key={i}
@@ -292,11 +311,17 @@ export function Home() {
                 className="group cursor-pointer"
               >
                 <div className="aspect-[4/3] bg-secondary mb-6 relative overflow-hidden flex items-center justify-center border border-border">
-                  <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500"></div>
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-primary/5 transition-colors duration-500"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/70 to-transparent"></div>
                   <div className="w-16 h-16 rounded-full border border-primary/20 flex items-center justify-center bg-background transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 shadow-sm z-10">
                     <ArrowUpRight className="text-primary w-6 h-6" />
                   </div>
-                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23000000\" fill-opacity=\"1\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"3\"/%3E%3Ccircle cx=\"13\" cy=\"13\" r=\"3\"/%3E%3C/g%3E%3C/svg%3E')" }}></div>
                 </div>
                 <div className="text-xs font-semibold tracking-wider text-primary mb-2 uppercase">{project.category}</div>
                 <h3 className="font-serif text-xl font-medium mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
