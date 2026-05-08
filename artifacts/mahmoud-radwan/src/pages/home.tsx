@@ -566,7 +566,7 @@ export function Home() {
                 Or swap the action URL for your own backend endpoint.
               */}
               <form
-                action="https://formspree.io/f/FORMSPREE_ID"
+                action="https://formspree.io/f/maqvdlgq"
                 method="POST"
                 className="space-y-5 bg-primary-foreground/5 border border-primary-foreground/10 p-8"
               >
