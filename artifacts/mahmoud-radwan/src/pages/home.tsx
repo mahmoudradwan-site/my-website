@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUpRight, CheckCircle2, ChevronRight, Globe, Mail, MessageCircle, MessageSquare, Send, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowUpRight, Award, BookOpen, CheckCircle2, ChevronRight, Crown, Download, FileText, Globe, Heart, Lock, Mail, MessageCircle, MessageSquare, Mic, Search, Send, ShieldCheck, Sparkles, Stethoscope, Truck, Users, Zap } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,16 +8,16 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { motion } from "framer-motion";
-import photoPath from "@/assets/photo.png";
-import portfolioDefensePath from "@/assets/portfolio-defense.png";
+import { motion, type Variants } from "framer-motion";
+import photoPath from "@/assets/photo.webp";
+import portfolioDefensePath from "@/assets/portfolio-defense.webp";
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -41,16 +41,20 @@ export function Home() {
           >
             <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
               <div className="w-12 h-px bg-primary"></div>
-              <span className="text-primary font-semibold tracking-widest uppercase text-sm">Senior Translator</span>
+              <span className="text-primary font-semibold tracking-widest uppercase text-sm">Senior Interpreter & Translator</span>
             </motion.div>
             
             <motion.h1 variants={fadeInUp} className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] text-foreground mb-6">
               Mahmoud Radwan. <br />
-              <span className="text-muted-foreground italic font-normal">Precision in Every Word.</span>
+              <span className="text-muted-foreground italic font-normal">On the floor. On the page.</span>
             </motion.h1>
             
+            <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-6">
+              Senior consecutive interpreter, deployed on-site with engineers and trainers — most recently with <span className="text-foreground font-medium">CEER's electric-vehicle program in Saudi Arabia</span> and <span className="text-foreground font-medium">General Dynamics' Pandur 6×6 program in Vienna</span>.
+            </motion.p>
+
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-10">
-              14 years delivering expert Arabic–English translation across technical, legal, medical, and luxury brand domains. Trusted by global organizations for precision and cultural authenticity.
+              For written work: <span className="text-foreground font-medium">100% human translation, NDA-default.</span> No AI, no machine translation. Your IP doesn't leave my desk.
             </motion.p>
             
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
@@ -85,7 +89,7 @@ export function Home() {
               { label: "Experience", value: "14+ Years" },
               { label: "Client Satisfaction", value: "99%" },
               { label: "CAT Tool Platforms", value: "6+" },
-              { label: "Words Translated", value: "2.5M+" },
+              { label: "Words Translated", value: "7M+" },
             ].map((stat, i) => (
               <div key={i} className="text-center px-4">
                 <div className="font-serif text-3xl md:text-4xl font-semibold text-primary mb-2">{stat.value}</div>
@@ -153,12 +157,35 @@ export function Home() {
                   ))}
                 </div>
               </motion.div>
+
+              {/* Career timeline */}
+              <motion.div variants={fadeInUp} className="mt-12 pt-10 border-t border-border">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-8">Career Milestones</h3>
+                <div className="space-y-6">
+                  {[
+                    { year: "2010 — 2013", role: "Translator", org: "STAR Middle East, Cairo", detail: "Pioneered translation memory adoption; established quality control protocols still in use." },
+                    { year: "2013 — 2014", role: "Interpreter & Translator", org: "General Dynamics Land Systems, Vienna", detail: "Pandur 6×6 armored vehicle training. Built standardized military terminology databases. Multiple awards for outstanding interpretation." },
+                    { year: "2014 — Present", role: "Senior Translator & Reviewer", org: "STAR Middle East, Cairo", detail: "Lead specialist for premium global brands. Spearheaded a multi-million-word military translation initiative. Mentor to junior translators." },
+                    { year: "2021", role: "Research Translator & Cultural Consultant", org: "University of Groningen, Netherlands", detail: "Cross-cultural study on loneliness, peer-reviewed publication in the Journal of the IARR." },
+                    { year: "2026", role: "Lead Interpreter & Translator", org: "CEER Electric Vehicles, KAEC, Saudi Arabia", detail: "On-site consecutive interpretation plus full written translation of presentations and training materials. Modern Standard Arabic." },
+                  ].map((milestone, i) => (
+                    <div key={i} className="grid grid-cols-[auto,1fr] gap-6 relative">
+                      <div className="text-xs font-semibold text-primary tracking-widest uppercase pt-1 whitespace-nowrap">{milestone.year}</div>
+                      <div className="border-l-2 border-primary/20 pl-6 pb-1">
+                        <div className="font-medium text-foreground">{milestone.role}</div>
+                        <div className="text-sm text-primary mb-1">{milestone.org}</div>
+                        <div className="text-sm text-muted-foreground leading-relaxed">{milestone.detail}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* AI / MTPE SECTION */}
+      {/* CONFIDENTIALITY / 100% HUMAN SECTION */}
       <section className="py-24 md:py-32 px-6 md:px-12 bg-primary text-primary-foreground relative overflow-hidden">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -168,14 +195,17 @@ export function Home() {
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
             >
-              <motion.div variants={fadeInUp} className="mb-4 text-primary-foreground/70 font-semibold tracking-widest uppercase text-xs">
-                Future-Ready
+              <motion.div variants={fadeInUp} className="mb-4 text-primary-foreground/70 font-semibold tracking-widest uppercase text-xs flex items-center gap-2">
+                <Lock className="w-3 h-3" /> Confidentiality-First
               </motion.div>
               <motion.h2 variants={fadeInUp} className="font-serif text-3xl md:text-5xl font-medium mb-6">
-                Your Bridge into the AI Translation Era
+                Your IP Stays Human.
               </motion.h2>
+              <motion.p variants={fadeInUp} className="text-primary-foreground/80 text-lg leading-relaxed mb-6">
+                Press releases, patents, internal strategy, unreleased product documentation — sensitive content shouldn't be uploaded to AI systems whose training pipelines you can't audit. Mine isn't.
+              </motion.p>
               <motion.p variants={fadeInUp} className="text-primary-foreground/80 text-lg leading-relaxed mb-8">
-                AI tools are fast, but fast isn't always right. With 14 years of expertise and deep Machine Translation Post-Editing (MTPE) experience, I help organizations make the leap into AI-assisted workflows without losing quality, tone, and cultural accuracy.
+                Every word I translate is translated by me, directly. No machine translation engines. No AI tools. No third-party platforms ingesting your text. Just decades of human expertise, a custom glossary, and an NDA that's signed before I open the file.
               </motion.p>
               
               <motion.div variants={fadeInUp}>
@@ -185,7 +215,7 @@ export function Home() {
                   className="rounded-none border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary h-14 px-8"
                   onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
-                  Discuss Your AI Workflow
+                  Discuss a Confidential Project
                 </Button>
               </motion.div>
             </motion.div>
@@ -198,13 +228,13 @@ export function Home() {
               className="space-y-6"
             >
               {[
-                { title: "MTPE Workflows", desc: "Enterprise-scale Machine Translation Post-Editing for Arabic ↔ English." },
-                { title: "Humanizing AI", desc: "Polishing AI-generated translations to sound natural, authoritative, and human." },
-                { title: "Terminology Management", desc: "Integrating strict style guides and glossaries into automated pipelines." },
-                { title: "Cultural Adaptation", desc: "Ensuring AI output aligns perfectly with the Arabic-speaking market's nuances." }
+                { icon: Users, title: "100% Human Translation", desc: "Every word translated by me directly. No AI assist, no MT, no third-party platforms." },
+                { icon: Lock, title: "NDA-Default", desc: "Standard in every engagement. Nothing leaves my control without written permission." },
+                { icon: Search, title: "Glossary-Driven", desc: "Custom terminology researched and built before translation begins, refined throughout delivery." },
+                { icon: Sparkles, title: "MTPE Available — Separately", desc: "Already used AI on your text? STAR Deutschland-certified Machine Translation Post-Editing offered as a distinct review service. Different scope, different pricing." }
               ].map((item, i) => (
                 <motion.div key={i} variants={fadeInUp} className="flex items-start gap-4 p-6 bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors">
-                  <Sparkles className="w-6 h-6 text-primary-foreground/60 shrink-0 mt-1" />
+                  <item.icon className="w-6 h-6 text-primary-foreground/60 shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
                     <p className="text-primary-foreground/70">{item.desc}</p>
@@ -234,12 +264,36 @@ export function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: ShieldCheck, title: "Technical Translation", desc: "Engineering documents, manuals, automotive and military materials. Precise terminology, zero ambiguity." },
-              { icon: Globe, title: "Medical Translation", desc: "Clinical studies, pharmaceutical documents, and medical device manuals translated with rigorous accuracy." },
-              { icon: MessageSquare, title: "Marketing & Localization", desc: "Brand voice adapted for Arabic-speaking markets. Campaigns, product descriptions, and brand narratives." },
-              { icon: MessageSquare, title: "Consecutive Interpretation", desc: "Professional consecutive interpretation for training sessions, conferences, and military briefings." },
-              { icon: Sparkles, title: "Post-Editing (MTPE)", desc: "Machine translation post-editing using advanced CAT tools. Fast turnaround without sacrificing quality." },
-              { icon: CheckCircle2, title: "Translation Review & QA", desc: "Independent linguistic review and quality assurance of translated content produced by third parties." },
+              { 
+                icon: Mic, 
+                title: "Consecutive Interpretation", 
+                desc: "On-site at training programs, engineering bays, and military exercises. Recently with CEER electric vehicles in Saudi Arabia (2026) and General Dynamics' Pandur 6×6 program in Vienna." 
+              },
+              { 
+                icon: ShieldCheck, 
+                title: "Technical & Military", 
+                desc: "Engineering manuals, automotive owner's documentation, military training materials. Multimillion-word defense translation initiative led at STAR Middle East. Standardized terminology databases." 
+              },
+              { 
+                icon: Crown, 
+                title: "Luxury & Marketing Localization", 
+                desc: "Brand voice for Tier-1 European luxury portfolios — German automotive, Swiss watchmaking, Austrian crystal. Custom style guides tuned for Arabic-speaking markets." 
+              },
+              { 
+                icon: Stethoscope, 
+                title: "Medical Translation", 
+                desc: "Clinical materials, pharmaceutical documents, and medical device documentation translated with rigorous accuracy and regulatory awareness." 
+              },
+              { 
+                icon: CheckCircle2, 
+                title: "Translation Review & QA", 
+                desc: "Independent linguistic review of translations produced by other vendors. Engineered a 20% accuracy improvement at STAR Middle East through QC innovations." 
+              },
+              { 
+                icon: Sparkles, 
+                title: "MTPE — Separate Review Service", 
+                desc: "Machine Translation Post-Editing for clients who've already engaged AI systems. STAR Deutschland-certified, Oct 2022. Distinct from human translation — different scope, different pricing." 
+              },
             ].map((service, i) => (
               <motion.div 
                 key={i}
@@ -278,28 +332,60 @@ export function Home() {
             </div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                category: "Military / Defense",
-                title: "Defense Training Documentation",
-                desc: "Full documentation suite and live interpretation for a multinational defense training program.",
+                category: "Featured · 2026",
+                title: "CEER Electric Vehicle Program",
+                desc: "On-site consecutive interpretation at KAEC (King Abdullah Economic City, near Jeddah) plus full written translation of presentations and training materials for Saudi Arabia's flagship EV manufacturer. Modern Standard Arabic throughout.",
+                icon: Zap,
+                tone: "from-primary/15 to-primary/5",
+                iconTone: "text-primary",
+                image: null,
+              },
+              {
+                category: "Military · 2013–2014",
+                title: "Pandur 6×6 Training, General Dynamics",
+                desc: "On-site interpretation at General Dynamics Land Systems in Vienna for armored vehicle training. Built standardized military terminology databases adopted across cross-functional teams.",
+                icon: null,
                 image: portfolioDefensePath,
                 imageAlt: "Mahmoud Radwan at a defense training site",
               },
               {
-                category: "Academic Research",
-                title: "Cross-Cultural Study on Loneliness",
-                desc: "Contributing translator and cultural consultant for a peer-reviewed study published in the Journal of the International Association for Relationship Research.",
-                image: "https://images.unsplash.com/photo-1758270704113-9fb2ac81788f?auto=format&fit=crop&w=1200&q=80",
-                imageAlt: "Professor leading a university lecture with students taking notes",
+                category: "Luxury · Multi-Year",
+                title: "Tier-1 Luxury Brand Localization",
+                desc: "Long-running localization across owner manuals, brand campaigns, and digital content for premium European portfolios — German automotive, Swiss watchmaking, Austrian crystal. Custom glossaries and style guides developed and maintained.",
+                icon: Crown,
+                tone: "from-amber-100 to-amber-50",
+                iconTone: "text-amber-700",
+                image: null,
               },
               {
-                category: "Automotive / Technical",
-                title: "Automotive Brand Localization",
-                desc: "Long-term localization partnership covering owner's manuals, marketing materials, and digital content for a premium luxury automotive brand.",
-                image: "https://images.unsplash.com/photo-1760550818631-8043b7850885?auto=format&fit=crop&w=1200&q=80",
-                imageAlt: "Luxury car interior with red leather seats and dashboard",
+                category: "Strategic Partnership · 2010–Present",
+                title: "STAR Middle East — Senior Translation Lead",
+                desc: "14-year partnership; senior role since 2014. Spearheaded a multimillion-word military translation initiative. Engineered a 20% accuracy improvement through QC and terminology innovations. Mentor and trainer for junior translators.",
+                icon: Award,
+                tone: "from-slate-200 to-slate-100",
+                iconTone: "text-slate-700",
+                image: null,
+              },
+              {
+                category: "Academic Research · 2021",
+                title: "Cross-Cultural Loneliness Study",
+                desc: "Contributing translator and cultural consultant for a peer-reviewed cross-cultural study published in the Journal of the International Association for Relationship Research. University of Groningen, Netherlands.",
+                icon: BookOpen,
+                tone: "from-emerald-100 to-emerald-50",
+                iconTone: "text-emerald-800",
+                image: null,
+              },
+              {
+                category: "Volunteer · Social Impact",
+                title: "Think Twice — Child Rights Advocacy",
+                desc: "Led child rights advocacy campaigns across seven Egyptian governorates with NCCM (National Council for Childhood and Motherhood) and UNDP. Integrated art and media for maximum social impact.",
+                icon: Heart,
+                tone: "from-rose-100 to-rose-50",
+                iconTone: "text-rose-700",
+                image: null,
               },
             ].map((project, i) => (
               <motion.div 
@@ -307,25 +393,97 @@ export function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="group cursor-pointer"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="group"
               >
                 <div className="aspect-[4/3] bg-secondary mb-6 relative overflow-hidden flex items-center justify-center border border-border">
-                  <img
-                    src={project.image}
-                    alt={project.imageAlt}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-primary/5 transition-colors duration-500"></div>
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/70 to-transparent"></div>
-                  <div className="w-16 h-16 rounded-full border border-primary/20 flex items-center justify-center bg-background transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 shadow-sm z-10">
-                    <ArrowUpRight className="text-primary w-6 h-6" />
-                  </div>
+                  {project.image ? (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.imageAlt}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                      />
+                      <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-primary/5 transition-colors duration-500"></div>
+                      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/70 to-transparent"></div>
+                    </>
+                  ) : (
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.tone} transition-all duration-500 group-hover:scale-105`}>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                        {project.icon && <project.icon className={`w-20 h-20 ${project.iconTone} stroke-[1.2] opacity-80`} />}
+                        <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-foreground/40 mt-2 px-4 text-center">
+                          NDA-Protected · Details on Request
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="text-xs font-semibold tracking-wider text-primary mb-2 uppercase">{project.category}</div>
                 <h3 className="font-serif text-xl font-medium mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{project.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW I WORK — PROCESS */}
+      <section className="py-24 md:py-32 px-6 md:px-12 bg-secondary/30 border-y border-border">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="max-w-3xl mb-16"
+          >
+            <div className="mb-4 text-primary font-semibold tracking-widest uppercase text-xs">How I Work</div>
+            <h2 className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-4">A Repeatable Process, Refined Over 14 Years.</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Especially for confidential and technically dense work, the process is what protects your IP and your timeline. Here's exactly what happens between the brief and the delivery.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border">
+            {[
+              { 
+                num: "01", 
+                title: "Brief & NDA", 
+                desc: "You send the document, language pair, deadline, and any context. NDA signed before I open the file." 
+              },
+              { 
+                num: "02", 
+                title: "Glossary Build", 
+                desc: "I research your industry's terminology and your existing translated assets. Custom glossary built before a single sentence is translated." 
+              },
+              { 
+                num: "03", 
+                title: "Human Translation", 
+                desc: "Every word translated by me directly. No AI tools, no machine translation, no third-party platforms. CAT-tool consistency without AI exposure." 
+              },
+              { 
+                num: "04", 
+                title: "Quality Assurance", 
+                desc: "Internal QA pass against the glossary and your style guide. Stylistic refinement. Sentence-level review for cultural fit." 
+              },
+              { 
+                num: "05", 
+                title: "Delivery & Iteration", 
+                desc: "Final delivery on schedule. One revision round included. Glossary preserved for future engagements — your terminology, owned by you." 
+              },
+            ].map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="bg-background p-8 hover:bg-card transition-colors"
+              >
+                <div className="font-serif text-3xl text-primary/30 mb-4">{step.num}</div>
+                <h3 className="font-medium text-base mb-3 text-foreground">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -417,7 +575,10 @@ export function Home() {
             className="text-center max-w-3xl mx-auto mb-20"
           >
             <div className="mb-4 text-primary font-semibold tracking-widest uppercase text-xs">Pricing</div>
-            <h2 className="font-serif text-3xl md:text-5xl font-medium text-foreground">Transparent Rates</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-4">Transparent Rates</h2>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              Rates below apply to <span className="font-medium text-foreground">100% human written translation</span>. Consecutive interpretation and MTPE (review of AI-generated text) are scoped and quoted separately.
+            </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-center">
@@ -432,15 +593,15 @@ export function Home() {
                 <CardContent className="p-8">
                   <h3 className="font-serif text-2xl font-medium mb-2">Standard</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-3xl font-semibold">$0.06</span>
+                    <span className="text-3xl font-semibold">$0.10</span>
                     <span className="text-muted-foreground text-sm">/ source word</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-8 min-h-[60px]">General-purpose translation for standard documents, websites, and business content.</p>
+                  <p className="text-sm text-muted-foreground mb-8 min-h-[60px]">General-purpose human translation for standard documents, websites, and business content.</p>
                   <ul className="space-y-4 mb-8 text-sm">
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> Arabic ↔ English</li>
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> 3–5 day turnaround</li>
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> One revision round</li>
-                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> CAT tool consistency</li>
+                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> NDA on request</li>
                   </ul>
                   <Button variant="outline" className="w-full rounded-none border-border" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>Request Quote</Button>
                 </CardContent>
@@ -459,14 +620,14 @@ export function Home() {
                 <CardContent className="p-8 pt-10">
                   <h3 className="font-serif text-2xl font-medium mb-2">Specialist</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-3xl font-semibold">$0.08</span>
+                    <span className="text-3xl font-semibold">$0.14</span>
                     <span className="text-primary-foreground/70 text-sm">/ source word</span>
                   </div>
-                  <p className="text-sm text-primary-foreground/80 mb-8 min-h-[60px]">Technical, medical, legal, or automotive content requiring domain expertise and terminology management.</p>
+                  <p className="text-sm text-primary-foreground/80 mb-8 min-h-[60px]">Technical, medical, legal, military, or luxury content requiring domain expertise, custom glossary, and confidentiality protocols.</p>
                   <ul className="space-y-4 mb-8 text-sm">
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4" /> All Standard features</li>
-                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4" /> Domain-specific glossary</li>
-                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4" /> Priority turnaround</li>
+                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4" /> Custom glossary build</li>
+                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4" /> NDA-default</li>
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4" /> QA report included</li>
                   </ul>
                   <Button className="w-full rounded-none bg-white text-primary hover:bg-gray-100" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>Request Quote</Button>
@@ -487,12 +648,12 @@ export function Home() {
                   <div className="flex items-baseline gap-1 mb-6">
                     <span className="text-3xl font-semibold">Custom</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-8 min-h-[60px]">For ongoing partnerships, large-volume projects, or organizations needing a dedicated language partner.</p>
+                  <p className="text-sm text-muted-foreground mb-8 min-h-[60px]">For ongoing partnerships, large-volume projects, on-site interpretation engagements, or organizations needing a dedicated language partner.</p>
                   <ul className="space-y-4 mb-8 text-sm">
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> All Specialist features</li>
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> Volume discounts</li>
-                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> Dedicated project lead</li>
                     <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> Style guide creation</li>
+                    <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-primary" /> Dedicated availability</li>
                   </ul>
                   <Button variant="outline" className="w-full rounded-none border-border" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>Let's Talk</Button>
                 </CardContent>
@@ -524,20 +685,28 @@ export function Home() {
             <Accordion type="single" collapsible className="w-full space-y-4 border-none">
               {[
                 { 
+                  q: "Do you use AI or machine translation on my content?", 
+                  a: "No — not by default. Standard and Specialist tiers are 100% human translation. Your text never enters an AI system, an MT engine, or a third-party platform. If you've already used AI on your text and want it cleaned up, that's a separate review service (MTPE), quoted differently." 
+                },
+                { 
+                  q: "Do you offer on-site interpretation?", 
+                  a: "Yes — consecutive interpretation at training facilities, engineering sites, and military exercises is one of my primary services. Recent on-site engagements include CEER's electric-vehicle program in KAEC (Saudi Arabia, 2026) and General Dynamics' Pandur 6×6 program in Vienna. Travel and per-diem quoted per engagement." 
+                },
+                { 
                   q: "What language pairs do you work with?", 
                   a: "Arabic ↔ English. Both Modern Standard Arabic and regional variants can be accommodated depending on your target market." 
                 },
                 { 
                   q: "How do you handle confidential documents?", 
-                  a: "Confidentiality is paramount. I sign NDAs upon request and handle all materials with strict discretion. I have extensive experience working with sensitive military and corporate documentation." 
+                  a: "Confidentiality is the default. I sign NDAs before opening files. I have extensive experience with sensitive military, defense, and corporate documentation, including a multimillion-word defense translation initiative at STAR Middle East and on-site interpretation for armored-vehicle training at General Dynamics." 
                 },
                 { 
                   q: "What is your typical turnaround time?", 
-                  a: "Standard projects: 3–5 business days. For urgent requests, express delivery is available. I translate approximately 2,000–2,500 words per day, with quality assurance built in to every project." 
+                  a: "Standard projects: 3–5 business days. For urgent requests, express delivery is available. I translate approximately 2,000–2,500 words per day, with quality assurance built into every project." 
                 },
                 { 
                   q: "Do you work with CAT tools and translation memories?", 
-                  a: "Yes — I'm proficient in SDL Trados Studio, MemoQ, TRANSIT NXT, XTM Cloud, Phrase, and Wordbee. I can work within your preferred platform or use my own TM and glossary infrastructure." 
+                  a: "Yes — I'm proficient in SDL Trados Studio, MemoQ, TRANSIT NXT, XTM Cloud, Phrase, and Wordbee. I can work within your preferred platform or use my own TM and glossary infrastructure. CAT tools provide consistency without exposing your content to AI." 
                 },
                 { 
                   q: "Do you offer certified translation?", 
@@ -585,11 +754,6 @@ export function Home() {
               variants={fadeInUp}
               className="lg:col-span-3"
             >
-              {/*
-                TODO before launch: replace FORMSPREE_ID with your Formspree form id.
-                Sign up at https://formspree.io (free tier covers 50 submissions/month).
-                Or swap the action URL for your own backend endpoint.
-              */}
               <form
                 action="https://formspree.io/f/maqvdlgq"
                 method="POST"
@@ -692,13 +856,8 @@ export function Home() {
                 Or reach out directly
               </div>
 
-              {/*
-                TODO before launch: replace WHATSAPP_NUMBER with your number in international format,
-                no spaces or symbols (e.g. 201234567890 for Egypt). The wa.me/ link works on
-                desktop browsers and opens the WhatsApp app on mobile.
-              */}
               <a
-                href="https://wa.me/00201061758388?text=Hi%20Mahmoud%2C%20I%27d%20like%20to%20discuss%20a%20translation%20project."
+                href="https://wa.me/201061758388?text=Hi%20Mahmoud%2C%20I%27d%20like%20to%20discuss%20a%20translation%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 p-6 bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors group"
@@ -727,6 +886,54 @@ export function Home() {
                 <ArrowUpRight className="w-5 h-5 text-primary-foreground/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
 
+              <a
+                href="https://www.linkedin.com/in/mahmoud-radwan-68730b409/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 p-6 bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors group"
+              >
+                <Users className="w-6 h-6 text-primary-foreground/80 shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-base mb-1">LinkedIn</div>
+                  <div className="text-primary-foreground/70 text-sm">
+                    Verify experience, see endorsements, and connect.
+                  </div>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-primary-foreground/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
+              <a
+                href="https://www.proz.com/profile/3517852"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 p-6 bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors group"
+              >
+                <Award className="w-6 h-6 text-primary-foreground/80 shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-base mb-1">ProZ Profile</div>
+                  <div className="text-primary-foreground/70 text-sm">
+                    Industry-verified profile with project history.
+                  </div>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-primary-foreground/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
+              <a
+                href="/cv-mahmoud-radwan.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 p-6 bg-primary-foreground/10 border border-primary-foreground/20 hover:bg-primary-foreground/15 transition-colors group"
+              >
+                <Download className="w-6 h-6 text-primary-foreground shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-base mb-1">Download CV (PDF)</div>
+                  <div className="text-primary-foreground/70 text-sm">
+                    Full résumé with detailed work history, accolades, and references.
+                  </div>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-primary-foreground/50 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
               <div className="pt-4 border-t border-primary-foreground/10">
                 <div className="text-xs uppercase tracking-widest font-semibold text-primary-foreground/60 mb-2">
                   Based in
@@ -734,7 +941,7 @@ export function Home() {
                 <div className="text-lg font-medium">Cairo, Egypt</div>
                 <div className="text-primary-foreground/60 text-sm mt-1">
                   Working hours: 09:00 – 19:00 EET (GMT+2)<br />
-                  Available for projects worldwide.
+                  Available for projects and on-site engagements worldwide.
                 </div>
               </div>
             </motion.div>
@@ -743,9 +950,100 @@ export function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 bg-background border-t border-border text-center text-sm text-muted-foreground">
-        <div className="container mx-auto px-6">
-          <p>© {new Date().getFullYear()} Mahmoud Radwan. All rights reserved.</p>
+      <footer className="py-16 bg-background border-t border-border">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            {/* Brand */}
+            <div>
+              <div className="font-serif text-2xl font-bold text-primary mb-4">M·R</div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                Senior consecutive interpreter and 100% human Arabic–English translator. Cairo, Egypt — serving global clients.
+              </p>
+              <p className="text-xs text-muted-foreground/70 leading-relaxed">
+                Volunteer collaborator with NCCM &amp; UNDP on the Think Twice initiative for child rights advocacy across seven Egyptian governorates.
+              </p>
+            </div>
+
+            {/* Quick nav */}
+            <div>
+              <h3 className="text-xs uppercase tracking-widest font-semibold text-foreground mb-4">Site</h3>
+              <ul className="space-y-2 text-sm">
+                {[
+                  { href: "#services", label: "Services" },
+                  { href: "#about", label: "About" },
+                  { href: "#portfolio", label: "Portfolio" },
+                  { href: "#rates", label: "Rates" },
+                  { href: "#contact", label: "Contact" },
+                ].map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Direct */}
+            <div>
+              <h3 className="text-xs uppercase tracking-widest font-semibold text-foreground mb-4">Direct</h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="mailto:mahmoud@mahmoudradwan.me" className="text-muted-foreground hover:text-primary transition-colors break-all">
+                    mahmoud@mahmoudradwan.me
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/mahmoud-radwan-68730b409/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    LinkedIn <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.proz.com/profile/3517852"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    ProZ Profile <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/201061758388"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    WhatsApp <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/cv-mahmoud-radwan.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                  >
+                    Download CV <Download className="w-3 h-3" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-muted-foreground">
+            <p>© {new Date().getFullYear()} Mahmoud Radwan. All rights reserved.</p>
+            <p className="text-muted-foreground/70">NDA-default · Confidentiality-first · 100% human translation</p>
+          </div>
         </div>
       </footer>
     </div>

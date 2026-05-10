@@ -1,5 +1,4 @@
 # robots.txt — Mahmoud Radwan, Senior Translator
-# TODO before launch: replace SITE_URL with your real domain
 
 User-agent: *
 Allow: /
@@ -17,4 +16,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://SITE_URL/sitemap.xml
+Sitemap: https://mahmoudradwan.me/sitemap.xml
