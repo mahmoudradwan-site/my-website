@@ -87,7 +87,7 @@ export function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-border">
             {[
               { label: "Experience", value: "14+ Years" },
-              { label: "Client Satisfaction", value: "99%" },
+              { label: "Industries", value: "8+" },
               { label: "CAT Tool Platforms", value: "6+" },
               { label: "Words Translated", value: "7M+" },
             ].map((stat, i) => (
