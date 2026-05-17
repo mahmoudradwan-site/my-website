@@ -593,7 +593,7 @@ export function Home() {
                 <CardContent className="p-8">
                   <h3 className="font-serif text-2xl font-medium mb-2">Standard</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-3xl font-semibold">$0.10</span>
+                    <span className="text-3xl font-semibold">$0.06</span>
                     <span className="text-muted-foreground text-sm">/ source word</span>
                   </div>
                   <p className="text-sm text-muted-foreground mb-8 min-h-[60px]">General-purpose human translation for standard documents, websites, and business content.</p>
@@ -620,7 +620,7 @@ export function Home() {
                 <CardContent className="p-8 pt-10">
                   <h3 className="font-serif text-2xl font-medium mb-2">Specialist</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-3xl font-semibold">$0.14</span>
+                    <span className="text-3xl font-semibold">$0.08</span>
                     <span className="text-primary-foreground/70 text-sm">/ source word</span>
                   </div>
                   <p className="text-sm text-primary-foreground/80 mb-8 min-h-[60px]">Technical, medical, legal, military, or luxury content requiring domain expertise, custom glossary, and confidentiality protocols.</p>
